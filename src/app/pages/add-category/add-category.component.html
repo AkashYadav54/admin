@@ -1,0 +1,42 @@
+<div class="container mt-4 d-flex justify-content-center">
+    <div class="col-6">
+      <h2 class="text-center">Add New Category</h2>
+  
+      <form #categoryForm="ngForm" (submit)="addCategory($event)" novalidate>
+        <div class="mb-3">
+          <label for="categoryName" class="form-label">Category Name</label>
+          <input 
+            type="text" 
+            id="categoryName" 
+            class="form-control"
+            [(ngModel)]="newCategory.categoryName"
+            name="categoryName"
+            required
+            #categoryName="ngModel"
+          />
+          <div *ngIf="categoryName.invalid && categoryName.touched" class="text-danger">
+            Category name is required.
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label for="categoryImage" class="form-label">Category Image URL</label>
+          <input 
+            type="text" 
+            id="categoryImage" 
+            class="form-control"
+            [(ngModel)]="newCategory.categoryImage"
+            name="categoryImage"
+            required
+            #categoryImage="ngModel"
+          />
+          <div *ngIf="categoryImage.invalid && categoryImage.touched" class="text-danger">
+            Category image URL is required.
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-primary w-100" [disabled]="categoryForm.invalid">Add Category</button>
+      </form>
+    </div>
+  </div>
+  

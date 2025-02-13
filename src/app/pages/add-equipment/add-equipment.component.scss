@@ -1,0 +1,89 @@
+/* Container Styling */
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 10px;
+  border: 1px solid #eaeaea;
+}
+
+.card-body {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Inputs */
+.form-control-sm {
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.form-control-sm:focus {
+  border-color: #322653;
+  box-shadow: 0 0 0 0.25rem rgba(83, 75, 128, 0.25) !important;
+}
+
+/* Label Styling */
+.form-label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+/* Submit Button Styling */
+.btn-sm {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  background-color: #322653 !important;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Heading Styling */
+h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #333;
+}
+
+p.text-muted {
+  font-size: 1.1rem;
+  color: #888;
+}
+
+/* Image Preview Styling */
+#imagePreview {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Spacing between form elements */
+
+.row {
+  margin-bottom: 2rem;
+}
+.add {
+  background-color: #322653;
+}

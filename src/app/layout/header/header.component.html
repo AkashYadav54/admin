@@ -1,0 +1,25 @@
+<!-- toolbar.component.html -->
+<mat-toolbar class="custom-toolbar">
+  <!-- <button
+    mat-icon-button
+    class="neumorphic-button"
+    class="example-icon"
+    aria-label="Toggle Sidebar"
+    (click)="toggleSidebar()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button> -->
+ <p class="neumorphic-button">Mobolift</p>
+  &nbsp;
+  <span class="example-spacer"></span>
+
+  <!-- <button mat-button class="neumorphic-button btn btn-success">Mobolift</button> -->
+
+  <!-- <li>
+    <p class="neumorphic-button me- mt-2">Mobolift</p>
+  </li> -->
+
+  <li *ngIf="isAuthenticated">
+    <button (click)="onLogout()" class="btn btn-danger">Logout</button>
+  </li>
+</mat-toolbar>

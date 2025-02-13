@@ -1,0 +1,46 @@
+/* Equipment Card Styling */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-price {
+  font-size: 12px;
+}
+.bg-image {
+  object-fit: fill;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #322653;
+  border-color: #322653;
+}
+.sticky-button {
+  background-color: #322653;
+  margin-right: 15px;
+  border: none;
+}
+.delete {
+  background-color: rgb(231, 32, 82);
+  margin-top: 20px;
+  font-size: 17px;
+  border: none;
+}
+.delete:hover {
+  background-color: rgb(200, 28, 70);
+}

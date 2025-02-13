@@ -1,0 +1,65 @@
+<div class="container-fluid p-4">
+  <!-- Stats Section -->
+  <div class="row mb-4">
+    <div class="col-md-4" *ngFor="let stat of stats">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="text-muted mb-0">{{ stat.label }}</p>
+            <ng-container [ngSwitch]="stat.label" class="ps-4">
+              <mat-icon
+                *ngSwitchCase="'Total Equipment'"
+                [style.color]="'#28a745'"
+              >
+                build
+              </mat-icon>
+              <mat-icon
+                *ngSwitchCase="'Total Orders'"
+                [style.color]="'#db0738'"
+              >
+                shopping_cart
+              </mat-icon>
+              <mat-icon
+                *ngSwitchCase="'Total Categories'"
+                [style.color]="'#17a2b8'"
+              >
+                category
+              </mat-icon>
+              <mat-icon *ngSwitchDefault [style.color]="'#6c757d'">
+                help
+              </mat-icon>
+            </ng-container>
+          </div>
+          <h3 class="ms-4">{{ stat.value }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orders and Sources Section -->
+  <div class="row">
+    <!-- Orders Card -->
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5>Totals Overview Chart</h5>
+          <div id="totals-bar-chart" style="width: 100%; height: 350px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sources Card -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5>Sources</h5>
+          <div
+            id="segments-chart"
+            style="width: 100%; height: 345px"
+            class="echart"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

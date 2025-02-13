@@ -1,0 +1,55 @@
+
+  <div class="sticky-button-container text-end">
+    <button class="btn btn-primary sticky-button mb-2" (click)="addCategory()">
+      Add Category
+    </button>
+  </div>
+  
+  <section style="background-color: #eee" class="mb-2">
+    <div class="container py-5">
+      <div class="row justify-content-center mb-3">
+        <div
+          class="col-md-8 col-xl-8 mb-2"
+          *ngFor="let category of categories"
+        >
+          <div class="card shadow-0 border rounded-3">
+            <div class="card-body">
+              <div class="row d-flex justify-content-evenly">
+                <div class="col-md-6 col-lg-3 col-xl-3 mb-2 mb-lg-0">
+                  <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                    <img
+                      [src]="category.categoryImage"
+                      class="w-100"
+                    />
+                    <a>
+                      <div class="hover-overlay">
+                        <div
+                          class="mask"
+                          style="background-color: rgba(253, 253, 253, 0.15)"
+                        ></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4">
+                  <h2 class="text-center">{{ category.categoryName }}</h2>
+                  <div class="d-flex flex-column align-item-end mt-4">
+                    <button
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      class="btn btn-primary delete btn-sm"
+                      type="button"
+                      (click)="deleteCategory(category.categoryId)"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

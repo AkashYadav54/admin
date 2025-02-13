@@ -1,0 +1,156 @@
+<div class="container col-md-10">
+  <div class="text-center mb-4">
+    <h2>Update Equipment</h2>
+  </div>
+  <form (ngSubmit)="updateEquipment()">
+    <div class="row mb-2">
+      <!-- Equipment Name -->
+      <div class="form-group col-md-6">
+        <label for="equipmentName">Equipment Name</label>
+        <input
+          type="text"
+          id="equipmentName"
+          class="form-control"
+          [(ngModel)]="updatedEquipment.equipmentName"
+          name="equipmentName"
+          required
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="equipmentCategoryId">Category</label>
+        <select
+          id="equipmentCategoryId"
+          class="form-control"
+          [(ngModel)]="updatedEquipment.equipmentCategoryId"
+          name="equipmentCategoryId"
+          required
+        >
+          <option
+            *ngFor="let category of categories"
+            [value]="category.categoryId"
+          >
+            {{ category.categoryName }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <!-- Description -->
+      <div class="form-group col-md-6">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          class="form-control"
+          [(ngModel)]="updatedEquipment.description"
+          name="description"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Specifications -->
+      <div class="form-group col-md-6">
+        <label for="specifications">Specifications</label>
+        <textarea
+          id="specifications"
+          class="form-control"
+          [(ngModel)]="updatedEquipment.specifications"
+          name="specifications"
+          required
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Category -->
+
+    <!-- Equipment Image -->
+    <div class="form-group mb-2">
+      <label for="equipmentImage">Equipment Image</label>
+      <input
+        type="text"
+        id="equipmentImage"
+        class="form-control"
+        [(ngModel)]="updatedEquipment.equipmentImage.equipmentImage"
+        name="equipmentImage"
+      />
+    </div>
+    <!-- Rental Options -->
+    <h4>Rental Options</h4>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="basePrice">Hourly Price</label>
+        <input
+          type="number"
+          id="basePrice"
+          class="form-control"
+          [(ngModel)]="updatedEquipment.equipmentRentalOption.basePrice"
+          name="basePrice"
+          placeholder="Enter Hourly Price"
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label for="perWeekPrice">daily Price</label>
+        <input
+          type="number"
+          id="baseFare"
+          class="form-control"
+          [(ngModel)]="updatedEquipment.equipmentRentalOption.baseFare"
+          name="baseFare"
+          placeholder="Enter Daily Price"
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label for="perWeekPrice">Weekly Price</label>
+        <input
+          type="number"
+          id="perWeekPrice"
+          class="form-control"
+          [(ngModel)]="updatedEquipment.equipmentRentalOption.perWeekPrice"
+          name="perWeekPrice"
+          placeholder="Enter Weekly Price"
+        />
+      </div>
+      <div class="col-md-3">
+        <label for="perKmFare" class="form-label">Shifting Charge</label>
+        <input
+          type="number"
+          id="perKmFare"
+          class="form-control form-control-sm"
+          [(ngModel)]="updatedEquipment.equipmentRentalOption.perKmFare"
+          name="perKmFare"
+          required
+          placeholder="Enter Shifting Charge"
+        />
+      </div>
+    </div>
+    <!-- Location -->
+    <!-- <h4>Location</h4>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input
+  type="text"
+  id="address"
+  class="form-control"
+  [(ngModel)]="updatedEquipment.equipmentLocationRequest.address"
+  name="address"
+/>
+
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input
+        type="text"
+        id="city"
+        class="form-control"
+        [(ngModel)]="updatedEquipment.equipmentLocationRequest.city"
+        name="city"
+      />
+    </div> -->
+    <div class="d-flex justify-content-end mt-2">
+      <button type="submit" class="d-flex btn btn-primary update mt-2">
+        Update
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,230 @@
+<div class="container">
+  <div class="card shadow-lg border-0 rounded-lg">
+    <div class="text-center mb-4">
+      <h2>Add New Equipment</h2>
+      <p class="text-muted">Fill in the details of the equipment below</p>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="addEquipment()" #form="ngForm">
+        <!-- Equipment Name & Price -->
+        <div class="row">
+          <div class="col-md-6">
+            <label for="equipmentName" class="form-label">Equipment Name</label>
+            <input
+              type="text"
+              id="equipmentName"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentName"
+              name="equipmentName"
+              required
+              placeholder="Enter equipment name"
+              #equipmentNameField="ngModel"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="equipmentCategoryId">Category</label>
+            <select
+              id="equipmentCategoryId"
+              class="form-control"
+              [(ngModel)]="equipmentCategoryId"
+              name="equipmentCategoryId"
+              required
+              #equipmentCategoryIdField="ngModel"
+            >
+              <option
+                *ngFor="let category of categories"
+                [value]="category.categoryId"
+              >
+                {{ category.categoryName }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="equipmentPartnerId">Partner</label>
+            <select
+              id="equipmentPartnerId"
+              class="form-control"
+              [(ngModel)]="equipmentPartnerId"
+              name="equipmentPartnerId"
+              required
+              #equipmentPartnerIdField="ngModel"
+            >
+              <option
+                *ngFor="let partner of partners"
+                [value]="partner.partnerId"
+              >
+                {{ partner.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Equipment Description -->
+        <div class="mb-2">
+          <label for="equipmentDescription" class="form-label">Description</label>
+          <textarea
+            id="equipmentDescription"
+            class="form-control form-control-sm"
+            [(ngModel)]="equipmentDescription"
+            name="equipmentDescription"
+            rows="4"
+            required
+            placeholder="Provide a description"
+            #equipmentDescriptionField="ngModel"
+          ></textarea>
+        </div>
+
+        <!-- Image URL -->
+        <div class="mb-2">
+          <label for="equipmentImage" class="form-label">Image URL</label>
+          <input
+            type="text"
+            id="equipmentImage"
+            class="form-control form-control-sm"
+            [(ngModel)]="equipmentImage"
+            name="equipmentImage"
+            required
+            placeholder="Enter image URL"
+            #equipmentImageField="ngModel"
+          />
+        </div>
+
+        <!-- Rental Price Fields -->
+        <div class="row mb-2">
+          <div class="col-md-4">
+            <label for="basePrice" class="form-label">Hourly Price</label>
+            <input
+              type="number"
+              id="basePrice"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentRentalOption.basePrice"
+              name="basePrice"
+              required
+              placeholder="Enter base price"
+              #basePriceField="ngModel"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="baseFare" class="form-label">Daily Price</label>
+            <input
+              type="number"
+              id="baseFare"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentRentalOption.baseFare"
+              name="baseFare"
+              required
+              placeholder="Enter base fare"
+              #baseFareField="ngModel"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="perWeekPrice" class="form-label">Price per Week</label>
+            <input
+              type="number"
+              id="perWeekPrice"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentRentalOption.perWeekPrice"
+              name="perWeekPrice"
+              required
+              placeholder="Enter price per week"
+              #perWeekPriceField="ngModel"
+            />
+          </div>
+        </div>
+
+        <!-- Additional Price Fields -->
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <label for="perMonthPrice" class="form-label">Price per Month</label>
+            <input
+              type="number"
+              id="perMonthPrice"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentRentalOption.perMonthPrice"
+              name="perMonthPrice"
+              required
+              placeholder="Enter price per month"
+              #perMonthPriceField="ngModel"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="perKmFare" class="form-label">Shifting Charge</label>
+            <input
+              type="number"
+              id="perKmFare"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentRentalOption.perKmFare"
+              name="perKmFare"
+              required
+              placeholder="Enter fare per km"
+              #perKmFareField="ngModel"
+            />
+          </div>
+        </div>
+
+        <!-- Location Fields -->
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <label for="equipmentLocation" class="form-label">Location</label>
+            <input
+              type="text"
+              id="equipmentLocationAddress"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentLocation.address"
+              name="equipmentLocationAddress"
+              required
+              placeholder="Enter address"
+              #equipmentLocationAddressField="ngModel"
+            />
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">City</label>
+            <input
+              type="text"
+              id="equipmentLocationCity"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentLocation.city"
+              name="equipmentLocationCity"
+              required
+              placeholder="Enter city"
+              #equipmentLocationCityField="ngModel"
+            />
+          </div>
+
+          <div class="col-md-6 mt-1">
+            <input
+              type="text"
+              id="equipmentLocationState"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentLocation.state"
+              name="equipmentLocationState"
+              required
+              placeholder="Enter state"
+              #equipmentLocationStateField="ngModel"
+            />
+          </div>
+
+          <div class="col-md-6 mt-1">
+            <input
+              type="text"
+              id="equipmentLocationZipcode"
+              class="form-control form-control-sm"
+              [(ngModel)]="equipmentLocation.zipcode"
+              name="equipmentLocationZipcode"
+              required
+              placeholder="Enter zipcode"
+              #equipmentLocationZipcodeField="ngModel"
+            />
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary add btn-sm" [disabled]="form.invalid">
+            Add Equipment
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

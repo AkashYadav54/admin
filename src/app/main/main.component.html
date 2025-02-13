@@ -1,0 +1,17 @@
+<div *ngIf="!isLoginPage; else loginPage">
+  <!-- Main Layout -->
+  <div class="app-header">
+    <app-header></app-header>
+  </div>
+  <div class="container">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="content with-sidebar">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<ng-template #loginPage>
+  <!-- Render only the login page -->
+  <router-outlet></router-outlet>
+</ng-template>

@@ -1,0 +1,231 @@
+<div class="container mt-5">
+  <!-- Header Section -->
+  <div class="text-center mb-4">
+    <h2 class="display-4 title-head">All Orders</h2>
+    <p class="text-muted">
+      Manage and view all customer orders here with ease.
+    </p>
+  </div>
+
+  <!-- Order Filter Section -->
+  <div class="d-flex justify-content-between mb-4">
+    <!-- Search Orders Input -->
+    <div class="w-50">
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Search by Order ID or Name"
+        class="form-control"
+        style="border-radius: 30px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)"
+      />
+    </div>
+
+    <!-- <div class="">
+      <div class="dropdown">
+        <button
+          class="btn btn-outline-primary custom-dropdown-btn dropdown-toggle w-100"
+          type="button"
+          id="statusDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          style="
+            border-radius: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          "
+        >
+          Select Status
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="statusDropdown">
+          <li><a class="dropdown-item" (click)="filterByStatus('')">All</a></li>
+          <li>
+            <a class="dropdown-item" (click)="filterByStatus('ORDER PLACED')"
+              >ORDER PLACED</a
+            >
+          </li>
+
+        </ul>
+      </div>
+    </div> -->
+    <button class="download" (click)="exportToExcel()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="#000000"
+        viewBox="0 0 256 256"
+      >
+        <path
+          d="M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H72a8,8,0,0,1,0,16H32v64H224V136H184a8,8,0,0,1,0-16h40A16,16,0,0,1,240,136Zm-117.66-2.34a8,8,0,0,0,11.32,0l48-48a8,8,0,0,0-11.32-11.32L136,108.69V24a8,8,0,0,0-16,0v84.69L85.66,74.34A8,8,0,0,0,74.34,85.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Order Table Section -->
+  <div class="table-responsive">
+    <mat-table
+      [dataSource]="dataSource"
+      matSort
+      class="table table-striped table-bordered shadow-sm"
+    >
+      <!-- Order ID Column -->
+      <ng-container matColumnDef="orderId">
+        <mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          class="custom-header-cell"
+          >Order ID</mat-header-cell
+        >
+        <mat-cell *matCellDef="let order">{{ order.orderId }}</mat-cell>
+      </ng-container>
+
+      <!-- Order Name Column -->
+      <ng-container matColumnDef="orderName">
+        <mat-header-cell *matHeaderCellDef class="custom-header-cell"
+          >Order Name</mat-header-cell
+        >
+        <mat-cell *matCellDef="let order">{{
+          order.customerDetail.fullName
+        }}</mat-cell>
+      </ng-container>
+
+      <!-- Order Price Column -->
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef class="custom-header-cell"
+          >Price</mat-header-cell
+        >
+        <mat-cell *matCellDef="let order">{{
+          order.totalAmount | currency : "INR"
+        }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Phone">
+        <mat-header-cell *matHeaderCellDef class="custom-header-cell"
+          >Phone</mat-header-cell
+        >
+        <mat-cell *matCellDef="let order">{{
+          order.customerDetail.mobileNumber
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Status">
+        <mat-header-cell *matHeaderCellDef class="custom-header-cell"
+          >Status</mat-header-cell
+        >
+        <mat-cell *matCellDef="let order">{{
+          order.orderStatus.replace("_", " ")
+        }}</mat-cell>
+      </ng-container>
+
+      <!-- Order Status Column -->
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="custom-header-cell"
+          >Actions</mat-header-cell
+        >
+        <mat-cell *matCellDef="let order">
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="viewOrder(order)"
+            style="border-radius: 50%; padding: 8px"
+          >
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <!-- <button
+            mat-icon-button
+            color="warn"
+            (click)="deleteOrder(order)"
+            style="border-radius: 50%; padding: 8px"
+          >
+            <mat-icon>delete</mat-icon>
+          </button> -->
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>
+
+<div *ngIf="isDialogOpen" class="custom-dialog-overlay">
+  <div class="custom-dialog">
+    <h2 class="dialog-title">Order Details</h2>
+    <div class="detail-row text-center">
+      <strong>Order ID:</strong>
+      <span>{{ selectedOrder?.orderId }}</span>
+    </div>
+    <div class="order-detail">
+      <div class="detail-row">
+        <strong>Customer Name:</strong>
+        <span>{{ selectedOrder?.customerDetail.fullName }}</span>
+      </div>
+      <div class="detail-row">
+        <strong>Email:</strong>
+        <span>{{ selectedOrder?.customerDetail.emailAddress }}</span>
+      </div>
+      <div class="detail-row">
+        <strong>Phone:</strong>
+        <span>{{ selectedOrder?.customerDetail.mobileNumber }}</span>
+      </div>
+      <div class="detail-row">
+        <strong>Order Status:</strong>
+        <span>{{ selectedOrder?.orderStatus.replace("_", " ") }}</span>
+      </div>
+      <div class="detail-row">
+        <strong>Payment Status:</strong>
+        <span>{{ selectedOrder?.paymentStatus.replace("_", " ") }}</span>
+      </div>
+      <div class="detail-row">
+        <strong>Total Amount:</strong>
+        <span>{{ selectedOrder?.totalAmount | currency : "INR" }}</span>
+      </div>
+      <div class="detail-row">
+        <strong>Rental Dates:</strong>
+        <span
+          >{{ selectedOrder?.rentalStartDate | date : "short" }} -
+          {{ selectedOrder?.rentalEndDate | date : "short" }}</span
+        >
+      </div>
+      <div class="detail-row">
+        <strong>Job Site:</strong>
+        <span
+          >{{ selectedOrder?.jobSiteDetail.streetAddress }},
+          {{ selectedOrder?.jobSiteDetail.city }},
+          {{ selectedOrder?.jobSiteDetail.state }},
+          {{ selectedOrder?.jobSiteDetail.zipCode }}</span
+        >
+      </div>
+
+      <div
+        *ngFor="let equipment of selectedOrder?.orderEquipmentSet"
+        class="equipment-detail"
+      >
+        <h3 class="text-center">Order Equipment</h3>
+        <div class="d-flex">
+          <div class="d-flex flex-column">
+            <div>
+              <strong>Equipment Name:</strong> {{ equipment.equipment.name }}
+            </div>
+            <div>
+              <strong>Category:</strong>
+              {{ equipment.equipment.equipmentCategory.categoryName }}
+            </div>
+            <div>
+              <strong>Estimated Cost:</strong>
+              {{ equipment.estimatedCost | currency : "INR" }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-danger" (click)="closeDialog()">Close</button>
+  </div>
+</div>
