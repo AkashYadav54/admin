@@ -25,6 +25,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CategoryComponent } from './pages/category/category.component';
 import { AddCategoryComponent } from './pages/add-category/add-category.component';
+import { CouponCodeComponent } from './pages/coupon-code/coupon-code/coupon-code.component';
+import { AddCouponComponent } from './pages/coupon-code/add-coupon/add-coupon.component';
+import { DeleteCouponComponent } from './pages/coupon-code/delete-coupon/delete-coupon.component';
+import { UpdateCouponComponent } from './pages/coupon-code/update-coupon/update-coupon.component';
 
 
 @NgModule({
@@ -42,6 +46,10 @@ import { AddCategoryComponent } from './pages/add-category/add-category.componen
     UserComponent,
     CategoryComponent,
     AddCategoryComponent,
+    CouponCodeComponent,
+    AddCouponComponent,
+    DeleteCouponComponent,
+    UpdateCouponComponent,
   ],
   imports: [
     MatIconModule,

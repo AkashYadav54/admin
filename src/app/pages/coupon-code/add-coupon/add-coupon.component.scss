@@ -1,0 +1,73 @@
+// add-coupon.component.scss
+
+.container {
+    max-width: 800px; /* Focus on Desktop - keep the form centered */
+    margin-top: 80px;
+  }
+  
+  h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  form {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  input.form-control,
+  textarea.form-control {
+    font-size: 18px;
+    padding: 12px;
+  }
+  
+  button {
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  button[type="button"] {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #5a6268;
+  }
+  
+  .form-check-label {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    form {
+      padding: 30px;
+    }
+  
+    button {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }
+  

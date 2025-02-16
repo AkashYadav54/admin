@@ -10,6 +10,9 @@ import { UpdateEquipmentComponent } from './pages/update-equipment/update-equipm
 import { OrdersComponent } from './pages/orders/orders.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { AddCategoryComponent } from './pages/add-category/add-category.component';
+import { CouponCodeComponent } from './pages/coupon-code/coupon-code/coupon-code.component';
+import { AddCouponComponent } from './pages/coupon-code/add-coupon/add-coupon.component';
+import { UpdateCouponComponent } from './pages/coupon-code/update-coupon/update-coupon.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -34,6 +37,10 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   { path: 'orders', component: OrdersComponent, canActivate: [authGuard] },
+
+  { path: 'coupon', component: CouponCodeComponent, canActivate: [authGuard] },
+  { path: 'add-coupon', component: AddCouponComponent },
+  { path: 'update-coupon/:couponCode', component: UpdateCouponComponent },
 ];
 
 @NgModule({

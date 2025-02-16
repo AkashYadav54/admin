@@ -1,0 +1,34 @@
+// Add custom styles for the Coupon List
+.container {
+    margin-top: 50px;
+  }
+  
+  button {
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .list-group-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+  }
+  
+  .badge {
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 50px;
+  }
+  .add-coupon{
+    background-color: #322653;
+    border: none;
+  }

@@ -1,0 +1,81 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Update Coupon</h2>
+    
+    <form (ngSubmit)="updateCoupon()" class="bg-light p-4 rounded shadow-sm">
+      <!-- Coupon Code (Read-Only) -->
+      <div class="mb-3">
+        <label for="couponCode" class="form-label">Coupon Code:</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="couponCode" 
+          [(ngModel)]="coupon.couponCode" 
+          name="couponCode" 
+          required 
+          readonly
+          placeholder="Coupon Code"
+        />
+      </div>
+  
+      <!-- Discount Percentage -->
+      <div class="mb-3">
+        <label for="percentageOff" class="form-label">Discount Percentage:</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="percentageOff" 
+          [(ngModel)]="coupon.percentageOff" 
+          name="percentageOff" 
+          required 
+          placeholder="Enter Discount Percentage"
+        />
+      </div>
+  
+      <!-- Expiration Date -->
+      <div class="mb-3">
+        <label for="expiresOn" class="form-label text-muted">Expires On:</label>
+        <input 
+          type="datetime-local" 
+          class="form-control custom-input" 
+          id="expiresOn" 
+          [(ngModel)]="coupon.expiresOn" 
+          name="expiresOn" 
+          required 
+          placeholder="Select Expiry Date"
+        />
+      </div>
+      
+  
+      <!-- Valid Checkbox -->
+      <div class="form-check mb-3">
+        <input 
+          type="checkbox" 
+          class="form-check-input" 
+          id="valid" 
+          [(ngModel)]="coupon.valid" 
+          name="valid" 
+          [checked]="coupon.valid" 
+        />
+        <label for="valid" class="form-check-label">Valid</label>
+      </div>
+  
+      <!-- Coupon Not Expired Checkbox -->
+      <div class="form-check mb-3">
+        <input 
+          type="checkbox" 
+          class="form-check-input" 
+          id="couponNotExpired" 
+          [(ngModel)]="coupon.couponNotExpired" 
+          name="couponNotExpired" 
+          [checked]="coupon.couponNotExpired" 
+        />
+        <label for="couponNotExpired" class="form-check-label">Coupon Not Expired</label>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary update-coupon w-100">Update Coupon</button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <!-- No Coupons Available Message -->
+    <div *ngIf="coupons.length === 0" class="text-center">
+      <p class="lead">No coupons available.</p>
+    </div>
+  
+    <!-- Add Coupon Button -->
+    <div class="sticky-button-container text-end mb-4">
+      <button (click)="addCoupon()" class="btn btn-primary add-coupon">Add Coupon</button>
+    </div>
+  
+    <!-- Coupons List -->
+    <div *ngIf="coupons.length > 0">
+      <div class="list-group">
+        <div *ngFor="let coupon of coupons" class="list-group-item d-flex justify-content-between align-items-center shadow-sm mb-3 rounded">
+          <!-- Coupon Info -->
+          <div>
+            <strong>{{ coupon.couponCode }}</strong><br />
+            <small>{{ coupon.description }}</small><br />
+            <span class="badge bg-success">{{ coupon.percentageOff }}% Off</span>
+            <span *ngIf="coupon.valid" class="badge bg-primary ms-2">Valid</span>
+            <span *ngIf="!coupon.valid" class="badge bg-danger ms-2">Expired</span>
+          </div>
+  
+          <!-- Update & Delete Buttons -->
+          <div>
+            <button (click)="updateCoupon(coupon.couponCode)" class="btn btn-warning btn-sm me-2">
+              <i class="bi bi-pencil"></i> Update
+            </button>
+            <button (click)="deleteCoupon(coupon.couponCode)" class="btn btn-danger btn-sm">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

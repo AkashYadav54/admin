@@ -1,0 +1,38 @@
+/* Custom styling for the form elements */
+.custom-input {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Change border color and shadow on focus */
+  .custom-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* Adjust label appearance */
+  .form-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  /* Subtle hover effect for the input */
+  .custom-input:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Add some spacing for the form group */
+  .mb-3 {
+    margin-bottom: 1.5rem;
+  }
+  .update-coupon{
+    background-color: #322653;
+    border: none;
+  }
