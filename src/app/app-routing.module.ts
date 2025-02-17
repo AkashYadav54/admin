@@ -13,6 +13,7 @@ import { AddCategoryComponent } from './pages/add-category/add-category.componen
 import { CouponCodeComponent } from './pages/coupon-code/coupon-code/coupon-code.component';
 import { AddCouponComponent } from './pages/coupon-code/add-coupon/add-coupon.component';
 import { UpdateCouponComponent } from './pages/coupon-code/update-coupon/update-coupon.component';
+import { ExpiredCouponComponent } from './pages/coupon-code/expired-coupon/expired-coupon.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -40,6 +41,7 @@ const routes: Routes = [
 
   { path: 'coupon', component: CouponCodeComponent, canActivate: [authGuard] },
   { path: 'add-coupon', component: AddCouponComponent },
+  { path: 'expired-coupon', component: ExpiredCouponComponent },
   { path: 'update-coupon/:couponCode', component: UpdateCouponComponent },
 ];
 

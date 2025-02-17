@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteCouponComponent } from './delete-coupon.component';
+import { ExpiredCouponComponent } from './expired-coupon.component';
 
-describe('DeleteCouponComponent', () => {
-  let component: DeleteCouponComponent;
-  let fixture: ComponentFixture<DeleteCouponComponent>;
+describe('ExpiredCouponComponent', () => {
+  let component: ExpiredCouponComponent;
+  let fixture: ComponentFixture<ExpiredCouponComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DeleteCouponComponent]
+      declarations: [ExpiredCouponComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DeleteCouponComponent);
+    fixture = TestBed.createComponent(ExpiredCouponComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

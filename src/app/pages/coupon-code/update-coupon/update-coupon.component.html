@@ -1,3 +1,8 @@
+<div>
+    <button class="back-button" (click)="back()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#322653" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H69l51.52,51.51a12,12,0,0,1-17,17l-72-72a12,12,0,0,1,0-17l72-72a12,12,0,0,1,17,17L69,116H216A12,12,0,0,1,228,128Z"></path></svg>
+    </button>
+</div>
 <div class="container mt-5">
     <h2 class="text-center mb-4">Update Coupon</h2>
     
@@ -57,19 +62,6 @@
           [checked]="coupon.valid" 
         />
         <label for="valid" class="form-check-label">Valid</label>
-      </div>
-  
-      <!-- Coupon Not Expired Checkbox -->
-      <div class="form-check mb-3">
-        <input 
-          type="checkbox" 
-          class="form-check-input" 
-          id="couponNotExpired" 
-          [(ngModel)]="coupon.couponNotExpired" 
-          name="couponNotExpired" 
-          [checked]="coupon.couponNotExpired" 
-        />
-        <label for="couponNotExpired" class="form-check-label">Coupon Not Expired</label>
       </div>
   
       <!-- Submit Button -->

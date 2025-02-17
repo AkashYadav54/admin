@@ -1,7 +1,7 @@
 // add-coupon.component.scss
 
 .container {
-    max-width: 800px; /* Focus on Desktop - keep the form centered */
+    max-width: 80vw; /* Focus on Desktop - keep the form centered */
     margin-top: 80px;
   }
   
@@ -31,13 +31,13 @@
   }
   
   button[type="submit"] {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #322653;
+    border-color: #322653;
     color: white;
   }
   
   button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #322653;
   }
   
   button[type="button"] {
@@ -70,4 +70,13 @@
       padding: 12px;
     }
   }
-  
+  .back-button{
+    background: none;
+    margin-left: 18px;
+    border: none;;
+  }
+
+  .back-button:hover{
+    background: none;
+    border: none;
+  }

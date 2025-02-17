@@ -27,8 +27,8 @@ import { CategoryComponent } from './pages/category/category.component';
 import { AddCategoryComponent } from './pages/add-category/add-category.component';
 import { CouponCodeComponent } from './pages/coupon-code/coupon-code/coupon-code.component';
 import { AddCouponComponent } from './pages/coupon-code/add-coupon/add-coupon.component';
-import { DeleteCouponComponent } from './pages/coupon-code/delete-coupon/delete-coupon.component';
 import { UpdateCouponComponent } from './pages/coupon-code/update-coupon/update-coupon.component';
+import { ExpiredCouponComponent } from './pages/coupon-code/expired-coupon/expired-coupon.component';
 
 
 @NgModule({
@@ -48,8 +48,8 @@ import { UpdateCouponComponent } from './pages/coupon-code/update-coupon/update-
     AddCategoryComponent,
     CouponCodeComponent,
     AddCouponComponent,
-    DeleteCouponComponent,
     UpdateCouponComponent,
+    ExpiredCouponComponent,
   ],
   imports: [
     MatIconModule,

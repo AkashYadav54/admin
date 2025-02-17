@@ -4,10 +4,18 @@
       <p class="lead">No coupons available.</p>
     </div>
   
-    <!-- Add Coupon Button -->
-    <div class="sticky-button-container text-end mb-4">
-      <button (click)="addCoupon()" class="btn btn-primary add-coupon">Add Coupon</button>
+
+    <div class="d-flex justify-content-between">
+        <div class="sticky-button-container text-end mb-4">
+            <button (click)="addCoupon()" class="btn btn-primary add-coupon">Add Coupon</button>
+          </div>
+      
+          <div class="sticky-button-container text-end mb-4">
+              <button (click)="expiredCoupon()" class="btn btn-primary add-coupon">Expired Coupon</button>
+            </div>
     </div>
+    <!-- Add Coupon Button -->
+   
   
     <!-- Coupons List -->
     <div *ngIf="coupons.length > 0">
@@ -19,16 +27,18 @@
             <small>{{ coupon.description }}</small><br />
             <span class="badge bg-success">{{ coupon.percentageOff }}% Off</span>
             <span *ngIf="coupon.valid" class="badge bg-primary ms-2">Valid</span>
-            <span *ngIf="!coupon.valid" class="badge bg-danger ms-2">Expired</span>
+            <span *ngIf="!coupon.valid" class="badge bg-danger ms-2">Expired</span><br>
+            <small>Expire On: {{ convertToIST(coupon.expiresOn)}}</small><br />
+
           </div>
   
           <!-- Update & Delete Buttons -->
           <div>
-            <button (click)="updateCoupon(coupon.couponCode)" class="btn btn-warning btn-sm me-2">
-              <i class="bi bi-pencil"></i> Update
+            <button (click)="updateCoupon(coupon.couponCode)" class="btn btn-warning update btn-sm me-2">
+              <i class="bi bi-pencil "></i> Update
             </button>
-            <button (click)="deleteCoupon(coupon.couponCode)" class="btn btn-danger btn-sm">
-              <i class="bi bi-trash"></i> Delete
+            <button (click)="deleteCoupon(coupon.couponCode)" class="btn btn-danger delete btn-sm">
+              <i class="bi bi-trash "></i> Delete
             </button>
           </div>
         </div>

@@ -38,6 +38,12 @@ export class CouponCodeService {
     return this.http.get<any[]>(this.apiUrl, { headers });
   }
 
+  
+  getExpiredCoupons(): Observable<any[]> {
+    const headers = this.getAuthHeaders();
+    return this.http.get<any[]>(`${this.apiUrl}/expired`, { headers });
+  }
+
   // Get coupon by ID (GET)
   getCouponById(couponCode: string): Observable<any> {
     const headers = this.getAuthHeaders();

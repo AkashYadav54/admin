@@ -55,4 +55,7 @@ export class AddCategoryComponent {
       },
     });
   }
+  back(){
+    this.router.navigate(['/category']);
+  }
 }

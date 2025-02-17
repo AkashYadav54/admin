@@ -1,6 +1,7 @@
 // Add custom styles for the Coupon List
 .container {
     margin-top: 50px;
+    align-items: center;
   }
   
   button {
@@ -16,6 +17,8 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
+    align-items: center;
+    justify-content: center;
   }
   
   .list-group-item:hover {
@@ -32,13 +35,14 @@
     background-color: #322653;
     border: none;
   }
-  .add-coupon:hover{
-    background-color: #25174b;
+
+  .back-button{
+    background: none;
+    margin-left: 18px;
+    border: none;;
+  }
+
+  .back-button:hover{
+    background: none;
     border: none;
   }
-.update:hover{
-    background-color: #f1bb18;
-}
-.delete:hover{
-    background-color: #bf0540;
-}

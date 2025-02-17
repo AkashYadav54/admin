@@ -1,7 +1,11 @@
 <!-- add-coupon.component.html -->
 <div class="container mt-5">
     <h3 class="text-center mb-4">Add Coupon</h3>
-    
+    <div>
+        <button class="back-button" (click)="goBack()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#322653" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H69l51.52,51.51a12,12,0,0,1-17,17l-72-72a12,12,0,0,1,0-17l72-72a12,12,0,0,1,17,17L69,116H216A12,12,0,0,1,228,128Z"></path></svg>
+        </button>
+    </div>
     <form (ngSubmit)="addCoupon()" class="bg-light p-5 rounded shadow-sm">
       <!-- Coupon Code -->
       <div class="mb-4">

@@ -128,4 +128,7 @@ export class UpdateEquipmentComponent {
         },
       });
   }
+  back(){
+    this.router.navigate(['/equipments']);
+  }
 }

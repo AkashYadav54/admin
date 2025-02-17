@@ -35,6 +35,10 @@ coupons: any[] = []; // No interface, just use any
    this.router.navigate(['add-coupon']);
   }
 
+  expiredCoupon() {
+    this.router.navigate(['expired-coupon']);
+   }
+
   // Delete coupon
   deleteCoupon(couponCode: string) {
     this.couponService.deleteCoupon(couponCode).subscribe(() => {
@@ -55,4 +59,27 @@ coupons: any[] = []; // No interface, just use any
     this.router.navigate([`update-coupon/${couponCode}`]);
   }
   
+  
+  convertToIST(date: string | Date | null | undefined): string | null {  // Improved type handling
+    if (!date) { return null; } // Handle null or undefined values
+
+    const utcDate = typeof date === 'string' ? new Date(date) : date instanceof Date ? date : new Date(date); // Handle string or Date input
+
+    if (isNaN(utcDate.getTime())) {
+      return 'Invalid Date'; // Handle invalid dates
+    }
+
+    const istDate = utcDate.toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      hour12: true,
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    });
+
+    return istDate;
+  }
 }
