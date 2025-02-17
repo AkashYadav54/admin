@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CouponCodeService } from '../../../services/coupon-code/coupon-code.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-expired-coupon',
@@ -10,10 +11,12 @@ import { Router } from '@angular/router';
   styleUrl: './expired-coupon.component.scss'
 })
 export class ExpiredCouponComponent {
-
+  coupons: any[] = [];
   expiredCoupon: any[] = [];
 
-  constructor(private couponService: CouponCodeService,private router:Router) { }
+  constructor(private couponService: CouponCodeService,private router:Router,
+      private snackBar: MatSnackBar
+  ) { }
   ngOnInit(): void {
 
     this.loadExpiredCoupon();
@@ -36,7 +39,16 @@ export class ExpiredCouponComponent {
   back(){
     this.router.navigate(['/coupon']);
   }
-
+  deleteCoupon(couponCode: string) {
+    this.couponService.deleteCoupon(couponCode).subscribe(() => {
+      this.coupons = this.coupons.filter(coupon => coupon.couponCode !== couponCode);
+      this.loadExpiredCoupon();
+      this.snackBar.open('Coupon deleted successfully!', 'Close', {
+        duration: 3000,
+        panelClass: ['success-snackbar'],
+      });
+    });
+  }
   convertToIST(date: string | Date | null | undefined): string | null {  // Improved type handling
     if (!date) { return null; } // Handle null or undefined values
 

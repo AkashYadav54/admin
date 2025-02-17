@@ -21,6 +21,9 @@
           <div>
            <p> <strong class="mb-4 mt-2">Expired on {{ convertToIST(coupon.expiresOn) }}</strong></p>
             <strong class="mt-4">Created on {{ convertToIST(coupon.createdOn) }}</strong><br />
+            <button (click)="deleteCoupon(coupon.couponCode)" class="btn btn-danger mt-2 delete btn-sm">
+                <i class="bi bi-trash "></i> Delete
+              </button>
           </div>
         </div>
 

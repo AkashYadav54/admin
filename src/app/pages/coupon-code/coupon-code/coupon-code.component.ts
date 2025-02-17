@@ -41,14 +41,30 @@ coupons: any[] = []; // No interface, just use any
 
   // Delete coupon
   deleteCoupon(couponCode: string) {
-    this.couponService.deleteCoupon(couponCode).subscribe(() => {
-      this.coupons = this.coupons.filter(coupon => coupon.couponCode !== couponCode);
-      this.snackBar.open('Coupon deleted successfully!', 'Close', {
-        duration: 3000,
-        panelClass: ['success-snackbar'],
-      });
-    });
+    this.couponService.deleteCoupon(couponCode).subscribe(
+      () => {
+        // After successful deletion, remove the coupon from the list
+        this.coupons = this.coupons.filter(coupon => coupon.couponCode !== couponCode);
+  
+        // Show success message
+        this.snackBar.open('Coupon deleted successfully!', 'Close', {
+          duration: 3000,
+          panelClass: ['success-snackbar'],
+        });
+      },
+      (error) => {
+        // Handle error if coupon deletion fails
+        console.error('Error deleting coupon:', error);  // Log the error to the console
+  
+        // Show error message
+        this.snackBar.open('Error deleting coupon. Please try again.', 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar'],
+        });
+      }
+    );
   }
+  
 
   // Update coupon
   updateCoupon(couponCode: string) { 

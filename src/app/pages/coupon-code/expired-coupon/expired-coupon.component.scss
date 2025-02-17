@@ -46,3 +46,12 @@
     background: none;
     border: none;
   }
+
+  .delete:hover{
+    background-color: #bf0540;
+}
+
+.delete:focus{
+    background-color: #bf0540;
+    box-shadow: none;
+}
