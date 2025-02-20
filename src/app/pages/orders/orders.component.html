@@ -208,19 +208,21 @@
         class="equipment-detail"
       >
         <h3 class="text-center">Order Equipment</h3>
-        <div class="d-flex">
+        <div class="d-flex justify-content-between">
           <div class="d-flex flex-column">
             <div>
               <strong>Equipment Name:</strong> {{ equipment.equipment.name }}
             </div>
             <div>
+              <strong>Specification:</strong> {{ equipment.equipment.specifications }}
+            </div>
+            <div>
               <strong>Category:</strong>
               {{ equipment.equipment.equipmentCategory.categoryName }}
             </div>
-            <div>
-              <strong>Estimated Cost:</strong>
-              {{ equipment.estimatedCost | currency : "INR" }}
-            </div>
+          </div>
+          <div class="">
+            <img class="equipimg" [src]="equipment.equipment.equipmentImage.equipmentThumbnail" alt="">
           </div>
         </div>
       </div>
